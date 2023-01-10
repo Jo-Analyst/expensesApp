@@ -62,7 +62,8 @@ class MyHomePage extends StatelessWidget {
                       ),
                       padding: const EdgeInsets.all(10),
                       child: Text(
-                        "R\$ ${tr.value.toStringAsFixed(2)}",
+                        // "R\$ ${tr.value.toStringAsFixed(2)}",
+                        NumberFormat('R\$ #.00', 'pt-BR').format(tr.value),
                         style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.purple,
