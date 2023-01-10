@@ -53,21 +53,37 @@ class MyHomePage extends StatelessWidget {
                   children: [
                     Container(
                       margin: const EdgeInsets.symmetric(
-                        horizontal: 15,
-                        vertical: 10
-                      ),
+                          horizontal: 15, vertical: 10),
                       decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.black,
-                          width: 2
-                        ), borderRadius: const BorderRadius.all(Radius.circular(5)),
-                      ), padding: const EdgeInsets.all(10),
-                      child: Text(tr.value.toString()),
+                        border: Border.all(color: Colors.purple, width: 2),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(5)),
+                      ),
+                      padding: const EdgeInsets.all(10),
+                      child: Text(
+                        tr.value.toString(),
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.purple,
+                            fontSize: 20),
+                      ),
                     ),
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(tr.title),
-                        Text(tr.date.toString()),
+                        Text(
+                          tr.title,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          tr.date.toString(),
+                          style: const TextStyle(
+                            color: Colors.grey,
+                          ),
+                        ),
                       ],
                     )
                   ],
