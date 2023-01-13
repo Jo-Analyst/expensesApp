@@ -21,16 +21,21 @@ class TransactionList extends StatelessWidget {
                   margin:
                       const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   decoration: BoxDecoration(
-                    border: Border.all(color: Colors.purple, width: 2),
-                    borderRadius: const BorderRadius.all(Radius.circular(5)),
+                    border: Border.all(
+                      color: Theme.of(context).primaryColor,
+                      width: 2,
+                    ),
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(5),
+                    ),
                   ),
                   padding: const EdgeInsets.all(10),
                   child: Text(
                     // "R\$ ${tr.value.toStringAsFixed(2)}",
                     NumberFormat('R\$ #.00', 'pt-BR').format(tr.value),
-                    style: const TextStyle(
+                    style:  TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Colors.purple,
+                        color: Theme.of(context).primaryColor,
                         fontSize: 20),
                   ),
                 ),
