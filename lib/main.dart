@@ -59,6 +59,8 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _transactions.add(newTransctions);
     });
+
+    Navigator.of(context).pop();
   }
 
   _openTransactionFormModal(BuildContext context) {
@@ -76,7 +78,9 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: const Text('Despesas Pessoais'),
         actions: [
-          IconButton(onPressed: () => _openTransactionFormModal(context), icon: const Icon(Icons.add)),
+          IconButton(
+              onPressed: () => _openTransactionFormModal(context),
+              icon: const Icon(Icons.add)),
         ],
       ),
       body: SingleChildScrollView(
