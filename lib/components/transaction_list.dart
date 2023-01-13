@@ -22,7 +22,7 @@ class TransactionList extends StatelessWidget {
                       const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   decoration: BoxDecoration(
                     border: Border.all(
-                      color: Theme.of(context).primaryColor,
+                      color: Theme.of(context).colorScheme.primary,
                       width: 2,
                     ),
                     borderRadius: const BorderRadius.all(
@@ -35,7 +35,7 @@ class TransactionList extends StatelessWidget {
                     NumberFormat('R\$ #.00', 'pt-BR').format(tr.value),
                     style:  TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Theme.of(context).primaryColor,
+                        color: Theme.of(context).colorScheme.primary,
                         fontSize: 20),
                   ),
                 ),
