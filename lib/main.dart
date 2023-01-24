@@ -102,6 +102,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    bool isLandScape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
     final appBar = AppBar(
       title: const Text(
         'Despesas Pessoais',
@@ -127,36 +129,37 @@ class _MyHomePageState extends State<MyHomePage> {
           // mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text('Exibir gráfico'),
-                Switch(
-                  activeTrackColor: Colors.amber,
-                  thumbColor: MaterialStateProperty.resolveWith<Color>(
-                      (Set<MaterialState> states) {
-                    if (_showChart) {
-                      return Colors.amber;
-                    }
-                    return Colors.grey;
-                  }),
-                  value: _showChart,
-                  onChanged: (value) {
-                    setState(() {
-                      _showChart = value;
-                    });
-                  },
-                ),
-              ],
-            ),
-            if (_showChart)
+            if (isLandScape)
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text('Exibir gráfico'),
+                  Switch(
+                    activeTrackColor: Colors.amber,
+                    thumbColor: MaterialStateProperty.resolveWith<Color>(
+                        (Set<MaterialState> states) {
+                      if (_showChart) {
+                        return Colors.amber;
+                      }
+                      return Colors.grey;
+                    }),
+                    value: _showChart,
+                    onChanged: (value) {
+                      setState(() {
+                        _showChart = value;
+                      });
+                    },
+                  ),
+                ],
+              ),
+            if (_showChart || !isLandScape)
               SizedBox(
-                height: avaiLableHeigth * 0.3,
+                height: avaiLableHeigth * (isLandScape ? 0.7 : 0.3),
                 child: Chart(
                   _recentTransactions,
                 ),
               ),
-            if (!_showChart)
+            if (!_showChart || !isLandScape)
               SizedBox(
                 height: avaiLableHeigth * 0.7,
                 child: TransactionList(
