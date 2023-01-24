@@ -112,6 +112,15 @@ class _MyHomePageState extends State<MyHomePage> {
         // ),
       ),
       actions: [
+        if (isLandScape)
+          IconButton(
+            onPressed: () {
+              setState(() {
+                _showChart = !_showChart;
+              });
+            },
+            icon: Icon(_showChart ? Icons.list : Icons.show_chart),
+          ),
         IconButton(
             onPressed: () => _openTransactionFormModal(context),
             icon: const Icon(Icons.add)),
@@ -129,29 +138,29 @@ class _MyHomePageState extends State<MyHomePage> {
           // mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            if (isLandScape)
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text('Exibir gráfico'),
-                  Switch(
-                    activeTrackColor: Colors.amber,
-                    thumbColor: MaterialStateProperty.resolveWith<Color>(
-                        (Set<MaterialState> states) {
-                      if (_showChart) {
-                        return Colors.amber;
-                      }
-                      return Colors.grey;
-                    }),
-                    value: _showChart,
-                    onChanged: (value) {
-                      setState(() {
-                        _showChart = value;
-                      });
-                    },
-                  ),
-                ],
-              ),
+            // if (isLandScape)
+            //   Row(
+            //     mainAxisAlignment: MainAxisAlignment.center,
+            //     children: [
+            //       const Text('Exibir gráfico'),
+            //       Switch(
+            //         activeTrackColor: Colors.amber,
+            //         thumbColor: MaterialStateProperty.resolveWith<Color>(
+            //             (Set<MaterialState> states) {
+            //           if (_showChart) {
+            //             return Colors.amber;
+            //           }
+            //           return Colors.grey;
+            //         }),
+            //         value: _showChart,
+            //         onChanged: (value) {
+            //           setState(() {
+            //             _showChart = value;
+            //           });
+            //         },
+            //       ),
+            //     ],
+            //   ),
             if (_showChart || !isLandScape)
               SizedBox(
                 height: avaiLableHeigth * (isLandScape ? 0.7 : 0.3),
