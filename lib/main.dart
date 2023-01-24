@@ -132,6 +132,14 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 const Text('Exibir gráfico'),
                 Switch(
+                  activeTrackColor: Colors.amber,
+                  thumbColor: MaterialStateProperty.resolveWith<Color>(
+                      (Set<MaterialState> states) {
+                    if (_showChart) {
+                      return Colors.amber;
+                    }
+                    return Colors.grey;
+                  }),
                   value: _showChart,
                   onChanged: (value) {
                     setState(() {
