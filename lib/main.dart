@@ -163,14 +163,14 @@ class _MyHomePageState extends State<MyHomePage> {
             //   ),
             if (_showChart || !isLandScape)
               SizedBox(
-                height: avaiLableHeigth * (isLandScape ? 0.7 : 0.3),
+                height: avaiLableHeigth * (isLandScape ? 0.8 : 0.3),
                 child: Chart(
                   _recentTransactions,
                 ),
               ),
             if (!_showChart || !isLandScape)
               SizedBox(
-                height: avaiLableHeigth * 0.7,
+                height: avaiLableHeigth *(isLandScape ? 1 : 0.7),
                 child: TransactionList(
                   _transactions,
                   _removeTransaction,
